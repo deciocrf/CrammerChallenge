@@ -4,7 +4,7 @@ RSpec.describe Crammer::Class, type: :model do
 
   subject { create :crammer_class }
 
-  context 'assocaitions' do
+  context 'associations' do
     it { should belong_to :user }
   end
 
