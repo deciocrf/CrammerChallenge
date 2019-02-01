@@ -3,8 +3,13 @@ class ApplicationController < ActionController::Base
 
   def welcome; end
 
-  protected
+  private
 
+  def locals(values)
+    render locals: values
+  end
+
+  protected
   def access_denied(error)
     redirect_to root_path
   end

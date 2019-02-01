@@ -8,6 +8,10 @@ header.main
           li.nav-item.email
             = link_to edit_user_registration_path, class: 'nav-link'
               = current_user.email
+          - if current_user.admin?
+            li.nav-item
+              = link_to admin_root_path, class: 'nav-link'
+                | Admin Panel
         li.nav-item
           - if user_signed_in?
             = link_to destroy_user_session_path, class: 'nav-link', method: :delete

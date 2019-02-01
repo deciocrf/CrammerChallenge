@@ -1,3 +1,10 @@
-h1 Hello!
-
-p See <code>README.md</code> for instructions.
+= render partial: 'layouts/alerts'
+- if user_signed_in?
+    - if current_user.admin?
+        p Welcome admin.
+    - if current_user.customer?    
+        = link_to classes_path, class: 'btn btn-primary'
+            | Manage classes
+    - if current_user.guest?
+        h2 Ready for study?
+        p See My Classes
