@@ -9,6 +9,9 @@ html
 
   body class=[controller_name, action_name]
     #wrapper
-      = render partial: 'layouts/header'
-      #main.container = yield
+      = render partial: 'layouts/header'     
+      #notices
+      = render partial: 'layouts/alerts'
+      #main.container 
+      = yield
 

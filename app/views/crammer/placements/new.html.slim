@@ -1,0 +1,14 @@
+/ Should recieve the class object from the _class partial link to be used on the placement
+/ get the users with access level == guest and use as link to post placement#create
+h1 Class Name 
+div.users-list
+    table
+        - @users.each do |u|
+            tr
+              td.name = u.email
+            
+              td.button =link_to placement_path(:user => u)
+                        | Add to class
+                
+
+

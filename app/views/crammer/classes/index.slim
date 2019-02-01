@@ -1,5 +1,7 @@
 / = render partial: 'layouts/header'
-.actions
-  =link_to "Create class", new_class_path, class: 'btn btn-primary' 
-  br          
-  == render partial: 'crammer/classes/class', collection: @crammer_classes, as: :crammer_class
+div.show-classes.row.col-md-6
+  .actions
+    =link_to "Create class", new_class_path, class: 'btn btn-primary' 
+    br  
+    div.row        
+    = render partial: 'crammer/classes/class', collection: @crammer_classes, as: :crammer_class

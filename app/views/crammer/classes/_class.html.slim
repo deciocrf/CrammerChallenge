@@ -1,10 +1,14 @@
 / Eg. render partial: 'class', collection: @crammer_classes, as: :crammer_class
-.crammer-class
-  h4 = crammer_class.name
-  p = crammer_class.id
-  =link_to 'Delete', class_path(:id => crammer_class.id), method: :delete, :data => {:confirm => 'Do you really want to delete this class?'}
-  |
-  
-  p 0 Students
+div.col-md-6.class-block
+  h4.row.class-title = crammer_class.name
+  p.row.students-number 0 Students
+  .row
+    .col
+      =link_to class_path(:id => crammer_class.id), method: :delete, :data => {:confirm => 'Do you really want to delete this class?'}
+        | Delete
+    .col
+      =link_to new_placement_path(:crammer_class => crammer_class)
+        | Edit
+    
   
   

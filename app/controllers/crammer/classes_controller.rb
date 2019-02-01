@@ -20,28 +20,26 @@ class Crammer::ClassesController < ApplicationController
         @crammer_classes = Crammer::Class.new(class_params)
         @crammer_classes.user = current_user
         if @crammer_classes.save
-            redirect_to classes_path, message: "Class successfully created."
+            flash[:success] = "Class successfully created."
+            redirect_to classes_path
         else
-            redirect_to new_class_path, message: "Error creating new class."
+            flash[:alert] =  "Error creating new class."
+            redirect_to new_class_path 
         end
     end
 
     def destroy
         @crammer_classes = Crammer::Class.find(params[:id])        
         if @crammer_classes.destroy
-            redirect_to classes_path, message: "Class successfully deleted."
+            flash[:success] = "Class successfully deleted."
+            redirect_to classes_path 
         else
-            redirect_to classes_path, message: "Error deleting class."
+            flash[:alert] = "Error deleting class."
+            redirect_to classes_path
         end
     end
 
-    
-    
-
-
-
-
-private 
+    private 
     def class_params        
         params.require(:crammer_classes).permit(:name, :id)
     end
